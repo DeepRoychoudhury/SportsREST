@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 public class Login {
 @GET
 @Produces("application/xml")
-public String requestLogin() {
+public String requestLogin() {	
 	StringBuilder sb = new StringBuilder();
 	sb.append("<note>");
 	sb.append("<to>Guest</to>");
