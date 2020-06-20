@@ -22,7 +22,7 @@ public class MysqlJdbcConnection {
             ResultSet rs = st.executeQuery(query)) {
 
             if (rs.next()) {
-                System.out.println(rs.getString(2)+" has " +rs.getString(3));
+                System.out.println(rs.getString(2)+" game is " +rs.getString(3));
                 }
             
 
