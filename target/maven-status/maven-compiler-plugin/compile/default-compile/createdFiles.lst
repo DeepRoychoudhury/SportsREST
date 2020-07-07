@@ -1,2 +1,4 @@
+com/restfulapi/pojo/SportsObject.class
+com/restfulapi/dao/SportsDao.class
+com/restfulapi/services/SportsService.class
 com/restfulapi/model/MysqlJdbcConnection.class
-com/restfulapi/Login.class
