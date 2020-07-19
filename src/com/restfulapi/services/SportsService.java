@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 
 import com.google.gson.Gson;
 import com.restfulapi.model.MysqlJdbcConnection;
+import com.restfulapi.model.PostgresqlJdbcConnection;
 import com.restfulapi.pojo.SportsObject;
 
 @Path("/sports")
@@ -19,7 +20,7 @@ public class SportsService {
 public String requestAllList() {	
 	String data = null;
 	ArrayList<SportsObject> sportsdata = null;
-	MysqlJdbcConnection mydata = new MysqlJdbcConnection();
+	PostgresqlJdbcConnection mydata = new PostgresqlJdbcConnection();
 	sportsdata=mydata.getcountrywisesports();
 	Gson gson = new Gson();
 	System.out.println(gson.toJson(sportsdata));

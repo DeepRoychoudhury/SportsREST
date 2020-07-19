@@ -1,4 +1,6 @@
 com/restfulapi/pojo/SportsObject.class
+com/restfulapi/model/PostgresqlJdbcConnection.class
 com/restfulapi/dao/SportsDao.class
 com/restfulapi/services/SportsService.class
+com/security/LinkedInApi.class
 com/restfulapi/model/MysqlJdbcConnection.class
