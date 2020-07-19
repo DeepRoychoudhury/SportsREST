@@ -14,10 +14,10 @@ public class SportsDao {
 	
 	public ArrayList<SportsObject> getcountrywisesports(Connection con){
 	ArrayList<SportsObject> sportsdata = new ArrayList<SportsObject>();	
-	String query = "SELECT * from sports.Countrywise_sports";
+	String query = "SELECT * from countrywise_sports";
 	try {
 	PreparedStatement ps = con.prepareStatement(query);
-    ResultSet rs = ps.executeQuery(query); 
+    ResultSet rs = ps.executeQuery(); 
 
    while(rs.next()) {
     	SportsObject sportsobject = new SportsObject();
