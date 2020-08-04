@@ -13,9 +13,9 @@ import com.restfulapi.pojo.SportsObject;
 public class PostgresqlJdbcConnection {
 	public ArrayList<SportsObject> getcountrywisesports(){
 
-        String url = "jdbc:postgresql://localhost:5432/sports";
-        String user = "root";
-        String password = "root"; 
+        String url = "jdbc:postgresql://sportsdatabase.cpwytlyekgvv.us-east-1.rds.amazonaws.com:5432/sports";
+        String user = "postgres";
+        String password = "postgres"; 
         ArrayList<SportsObject> sportsdata = null;
 
         try {
