@@ -25,7 +25,7 @@ public String requestAllList() {
 	Gson gson = new Gson();
 	System.out.println(gson.toJson(sportsdata));
 	data = gson.toJson(sportsdata);
-
+	System.out.println();
 	/*
 	 * StringBuilder sb = new StringBuilder(); for(int i=0; i<sportsdata.size();i++)
 	 * { sb.append("<sportsdetails>");

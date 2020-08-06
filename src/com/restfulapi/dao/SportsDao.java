@@ -14,7 +14,7 @@ public class SportsDao {
 	
 	public ArrayList<SportsObject> getcountrywisesports(Connection con){
 	ArrayList<SportsObject> sportsdata = new ArrayList<SportsObject>();	
-	String query = "SELECT * from countrywise_sports";
+	String query = "select * from countrywise_sports";
 	try {
 	PreparedStatement ps = con.prepareStatement(query);
     ResultSet rs = ps.executeQuery(); 
