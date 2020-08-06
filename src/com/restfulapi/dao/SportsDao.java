@@ -14,7 +14,7 @@ public class SportsDao {
 	
 	public ArrayList<SportsObject> getcountrywisesports(Connection con){
 	ArrayList<SportsObject> sportsdata = new ArrayList<SportsObject>();	
-	String query = "SELECT * from countrywise_sports";
+	String query = "select * from countrywise_sports";
 	try {
 	PreparedStatement ps = con.prepareStatement(query);
     ResultSet rs = ps.executeQuery(); 
@@ -32,4 +32,46 @@ public class SportsDao {
 	}
 	return sportsdata;
     }
+	
+	public ArrayList<SportsObject> addcountrywisesports(Connection con){
+		ArrayList<SportsObject> sportsdata = new ArrayList<SportsObject>();	
+		String query = "select * from countrywise_sports";
+		try {
+		PreparedStatement ps = con.prepareStatement(query);
+	    ResultSet rs = ps.executeQuery(); 
+
+	   while(rs.next()) {
+	    	SportsObject sportsobject = new SportsObject();
+	    	sportsobject.setCountry(rs.getString(2));
+	    	sportsobject.setSportsplayed(rs.getString(3));
+	    	sportsdata.add(sportsobject);
+	        }
+		}
+		catch(SQLException ex) {
+			 Logger lgr = Logger.getLogger(SportsDao.class.getName());
+	         lgr.log(Level.SEVERE, ex.getMessage(), ex);
+		}
+		return sportsdata;
+	    }
+
+	public ArrayList<SportsObject> getcountrywithid(int id, Connection con) {
+		ArrayList<SportsObject> sportsdata = new ArrayList<SportsObject>();	
+		String query = "select * from countrywise_sports where countrywise_id="+id;
+		try {
+		PreparedStatement ps = con.prepareStatement(query);
+	    ResultSet rs = ps.executeQuery(); 
+
+	   while(rs.next()) {
+	    	SportsObject sportsobject = new SportsObject();
+	    	sportsobject.setCountry(rs.getString(2));
+	    	sportsobject.setSportsplayed(rs.getString(3));
+	    	sportsdata.add(sportsobject);
+	        }
+		}
+		catch(SQLException ex) {
+			 Logger lgr = Logger.getLogger(SportsDao.class.getName());
+	         lgr.log(Level.SEVERE, ex.getMessage(), ex);
+		}
+		return sportsdata;
+	}
 }

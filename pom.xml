@@ -4,7 +4,6 @@
   <artifactId>SportsREST</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 	<dependency>
@@ -54,7 +53,7 @@
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
-      </plugin>
+      </plugin>      
     </plugins>
   </build>
 </project>
