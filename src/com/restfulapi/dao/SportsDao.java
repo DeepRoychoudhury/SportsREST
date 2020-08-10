@@ -74,4 +74,16 @@ public class SportsDao {
 		}
 		return sportsdata;
 	}
+
+	public void addData(String country, String sportsplayed, Connection con) {
+		String query = "insert into countrywise_sports(country,sportsplayed) values ('"+country+"','"+sportsplayed+"')";
+		System.out.println(query);
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+		    ps.executeUpdate();
+		}catch(SQLException ex) {
+			 Logger lgr = Logger.getLogger(SportsDao.class.getName());
+	         lgr.log(Level.SEVERE, ex.getMessage(), ex);
+		}
+	}
 }
