@@ -76,4 +76,27 @@ public class PostgresqlJdbcConnection {
 			e.printStackTrace();
 		}  
 	}
+
+	public ArrayList<SportsObject> getcountrywithname(String country) {
+		String url = "jdbc:postgresql://sportsdatabase.cpwytlyekgvv.us-east-1.rds.amazonaws.com:5432/sports";
+        String user = "postgres";
+        String password = "postgres"; 
+        ArrayList<SportsObject> sportsdata = null;
+
+        try {
+        	Class.forName("org.postgresql.Driver");  
+        	Connection con = DriverManager.getConnection(url, user, password);        
+            SportsDao sportsdao = new SportsDao();
+            sportsdata=sportsdao.getcountrywithname(country,con);
+
+        } catch (SQLException ex) {
+            
+            Logger lgr = Logger.getLogger(PostgresqlJdbcConnection.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+        } catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return sportsdata;
+	}
 }
