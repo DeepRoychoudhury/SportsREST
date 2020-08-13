@@ -71,6 +71,25 @@ public String requestbasedid(@PathParam("id") int id, @HeaderParam("authorizatio
 	
 }
 
+@GET
+@Path("/country/{country}")
+@Produces("application/json")
+public String requestbasedcountry(@PathParam("country") String country) {
+	/*
+	 * if(!isUserAuthenticated(authString)){ return
+	 * "{\"error\":\"User not authenticated\"}"; }
+	 */
+	String data = null;
+	ArrayList<SportsObject> sportsdata = null;
+	PostgresqlJdbcConnection mydata = new PostgresqlJdbcConnection();
+	sportsdata=mydata.getcountrywithname(country);
+	Gson gson = new Gson();
+	System.out.println(gson.toJson(sportsdata));
+	data = gson.toJson(sportsdata);
+	return data;
+	
+}
+
 @POST
 @Path("/add")
 @Consumes("text/plain,text/html,application/octet-stream")

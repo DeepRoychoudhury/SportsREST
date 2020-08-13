@@ -86,4 +86,25 @@ public class SportsDao {
 	         lgr.log(Level.SEVERE, ex.getMessage(), ex);
 		}
 	}
+
+	public ArrayList<SportsObject> getcountrywithname(String country, Connection con) {
+		ArrayList<SportsObject> sportsdata = new ArrayList<SportsObject>();	
+		String query = "select * from countrywise_sports where country='"+country+"'";
+		try {
+		PreparedStatement ps = con.prepareStatement(query);
+	    ResultSet rs = ps.executeQuery(); 
+
+	   while(rs.next()) {
+	    	SportsObject sportsobject = new SportsObject();
+	    	sportsobject.setCountry(rs.getString(2));
+	    	sportsobject.setSportsplayed(rs.getString(3));
+	    	sportsdata.add(sportsobject);
+	        }
+		}
+		catch(SQLException ex) {
+			 Logger lgr = Logger.getLogger(SportsDao.class.getName());
+	         lgr.log(Level.SEVERE, ex.getMessage(), ex);
+		}
+		return sportsdata;
+	}
 }
